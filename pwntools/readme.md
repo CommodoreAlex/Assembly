@@ -35,3 +35,16 @@ It is actually possible to build a binary from shellcode, see here:
 
 <img width="909" height="322" alt="image" src="https://github.com/user-attachments/assets/a32bf6fc-2365-40b8-96de-8be1a853bb50" />
 
+
+Assembling the binary from shellcode with arguments:
+```python
+#!/usr/bin/python3
+
+import sys, os, stat
+from pwn import *
+
+context(os="linux", arch="amd64", log_level="error")
+
+ELF.from_bytes(unhex(sys.argv[1])).save(sys.argv[2])
+os.chmod(sys.argv[2], stat.S_IEXEC)
+```
