@@ -18,3 +18,15 @@ file = ELF(sys.argv[1])
 shellcode = file.section(".text")
 print(shellcode.hex())
 ```
+
+We can expand on this by allowing for passing an argument for a binary to unhex shellcode:
+```python
+#!/usr/bin/python3
+
+import sys
+from pwn import *
+
+context(os="linux", arch="amd64", log_level="error")
+
+run_shellcode(unhex(sys.argv[1])).interactive()
+```
