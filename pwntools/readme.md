@@ -30,3 +30,8 @@ context(os="linux", arch="amd64", log_level="error")
 
 run_shellcode(unhex(sys.argv[1])).interactive()
 ```
+
+It is actually possible to build a binary from shellcode, see here:
+
+<img width="909" height="322" alt="image" src="https://github.com/user-attachments/assets/a32bf6fc-2365-40b8-96de-8be1a853bb50" />
+
